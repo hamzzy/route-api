@@ -1,47 +1,18 @@
 # Spotter Route API
 
-A Django 3.2.23 API for route planning with optimal fuel stops based on real-time fuel prices.
+A Django API for route planning with optimal fuel stops using real fuel station data.
 
-## Features
+## Quick Start
 
-- **Route Planning**: Uses OSRM for accurate routing between any two US locations
-- **Fuel Optimization**: Finds the most cost-effective fuel stops along the route
-- **Real-time Pricing**: Uses actual fuel station data with current prices
-- **Caching**: Redis-based caching for fast response times
-- **Geocoding**: Automatic geocoding of fuel stations with caching
-- **Docker Support**: Fully containerized with PostgreSQL and Redis
-- **Django Best Practices**: Class-based views, serializers, proper error handling
-- **Comprehensive Testing**: Unit tests, integration tests, and API tests
-- **API Documentation**: Built-in API documentation endpoint
-- **Logging**: Structured logging for monitoring and debugging
+```bash
+# Start everything
+make setup
 
-## Services Architecture
+# Or quick start (without geocoding all stations)
+make quick-start
+```
 
-The API uses a clean service layer architecture with the following services:
-
-### Core Services
-
-- **`RoutePlanningService`** (`planner/services/routing.py`)
-  - Handles route planning using OSRM API
-  - Geocodes start/finish locations using Nominatim
-  - Returns route geometry, distance, and duration
-
-- **`HybridFuelOptimizationService`** (`planner/services/hybrid_fuel_optimization.py`)
-  - Optimizes fuel stops using real fuel station data
-  - Uses actual fuel prices from the database
-  - Places fuel stops along the route at optimal intervals
-  - Balances cost-effectiveness with route efficiency
-
-- **`GeocodingService`** (`planner/services/geocoding.py`)
-  - Geocodes addresses to coordinates using Nominatim
-  - Implements rate limiting and caching
-  - Stores geocoded results in the database for reuse
-
-- **`BaseService`** (`planner/services/base.py`)
-  - Base class for all services
-  - Provides common functionality like logging and error handling
-
-## API Endpoint
+## API Usage
 
 ### POST /api/route-plan/
 
@@ -57,14 +28,8 @@ The API uses a clean service layer architecture with the following services:
 ```json
 {
   "summary": {
-    "start": {
-      "location": "New York, NY",
-      "coordinates": {"lat": 40.7128, "lon": -74.0060}
-    },
-    "finish": {
-      "location": "Chicago, IL", 
-      "coordinates": {"lat": 41.8781, "lon": -87.6298}
-    },
+    "start": {"location": "New York, NY", "coordinates": {"lat": 40.7128, "lon": -74.0060}},
+    "finish": {"location": "Chicago, IL", "coordinates": {"lat": 41.8781, "lon": -87.6298}},
     "total_distance_miles": 789.2,
     "total_duration_hours": 12.5,
     "fuel_efficiency_mpg": 10,
@@ -74,216 +39,71 @@ The API uses a clean service layer architecture with the following services:
     "number_of_stops": 2
   },
   "route": {
-    "geometry": "encoded_polyline_string",
+    "geojson": {
+      "type": "LineString",
+      "coordinates": [[-74.0060, 40.7128], [-87.6298, 41.8781]]
+    },
     "distance_meters": 1270000,
     "duration_seconds": 45000
   },
   "fuel_stops": [
     {
-      "station": {
-        "id": 123,
-        "name": "PILOT TRAVEL CENTER",
-        "address": "I-80, EXIT 123",
-        "city": "Cleveland",
-        "state": "OH",
-        "price": 3.25,
-        "coordinates": {"lat": 41.4993, "lon": -81.6944}
-      },
-      "distance_from_previous": 450.2,
-      "fuel_needed": 45.02,
-      "cost": 146.32
+      "name": "7-ELEVEN #218",
+      "address": "I-44, EXIT 4",
+      "city": "Harrold",
+      "state": "TX",
+      "coordinates": {"lat": 34.938, "lon": -93.103},
+      "price_per_gallon": 2.687,
+      "distance_from_prev_miles": 377.36,
+      "fuel_needed_gallons": 37.74,
+      "cost": 101.4
     }
   ]
 }
 ```
 
-## Setup Instructions
+## Makefile Commands
 
-### Using Docker (Recommended)
-
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd spotter_route_api
-   ```
-
-2. **Create environment file:**
-   ```bash
-   cp env.example .env
-   # Edit .env with your configuration
-   ```
-
-3. **Build and start services:**
-   ```bash
-   docker-compose up --build
-   ```
-
-4. **Load fuel station data:**
-   ```bash
-   docker-compose exec web python manage.py load_fuel_stations
-   ```
-
-5. **Geocode fuel stations:**
-   ```bash
-   docker-compose exec web python manage.py geocode_stations --limit 1000
-   ```
-
-6. **Access the API:**
-   - API: http://localhost:8000/api/route-plan/
-   - Admin: http://localhost:8000/admin/
-
-### Manual Setup
-
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Set up PostgreSQL with PostGIS:**
-   ```bash
-   # Install PostgreSQL and PostGIS
-   # Create database: spotter_route
-   ```
-
-3. **Set up Redis:**
-   ```bash
-   # Install and start Redis server
-   ```
-
-4. **Configure environment:**
-   ```bash
-   cp env.example .env
-   # Edit .env with your database and Redis URLs
-   ```
-
-5. **Run migrations:**
-   ```bash
-   python manage.py migrate
-   ```
-
-6. **Load data:**
-   ```bash
-   python manage.py load_fuel_stations
-   python manage.py geocode_stations --limit 1000
-   ```
-
-7. **Start server:**
-   ```bash
-   python manage.py runserver
-   ```
-
-## Configuration
-
-### Environment Variables
-
-- `DEBUG`: Django debug mode (True/False)
-- `DATABASE_URL`: PostgreSQL connection string
-- `REDIS_URL`: Redis connection string
-- `SECRET_KEY`: Django secret key
-- `NOMINATIM_USER_AGENT`: User agent for geocoding requests
-- `OSRM_BASE_URL`: OSRM routing service URL
-
-### Vehicle Configuration
-
-- **Fuel Efficiency**: 10 MPG (configurable in settings)
-- **Maximum Range**: 500 miles (configurable in settings)
-- **Cache TTL**: 1 hour (configurable in settings)
-
-## Management Commands
-
-### Load Fuel Stations
 ```bash
-python manage.py load_fuel_stations --file data/fuel-prices-for-be-assessment.csv
+# Start the application
+make up
+
+# Build and start everything
+make setup
+
+# Quick start (without geocoding)
+make quick-start
+
+# Load fuel station data
+make load-data
+
+# Geocode fuel stations
+make geocode
+
+# View logs
+make logs
+
+# Run tests
+make test
+
+# Stop everything
+make down
+
+# Clean up
+make clean
 ```
 
-### Geocode Stations
-```bash
-python manage.py geocode_stations --limit 1000 --batch-size 10
-```
+## Features
 
-## API Usage Examples
+- **Route Planning**: OSRM integration for accurate routing
+- **Fuel Optimization**: Real fuel station data with actual prices
+- **GeoJSON Support**: Standard LineString format for frontend mapping
+- **Caching**: Redis-based caching for fast responses
+- **Docker**: Fully containerized with PostgreSQL and Redis
 
-### cURL
-```bash
-curl -X POST http://localhost:8000/api/route-plan/ \
-  -H "Content-Type: application/json" \
-  -d '{"start": "New York, NY", "finish": "Los Angeles, CA"}'
-```
+## Next Steps
 
-### Python
-```python
-import requests
-
-response = requests.post(
-    'http://localhost:8000/api/route-plan/',
-    json={
-        'start': 'New York, NY',
-        'finish': 'Los Angeles, CA'
-    }
-)
-data = response.json()
-print(f"Total cost: ${data['summary']['total_cost']}")
-```
-
-## Performance
-
-- **Caching**: All route responses are cached for 1 hour
-- **Geocoding**: Only geocodes stations that are actually used
-- **Rate Limiting**: Respects Nominatim's 1 request/second limit
-- **Async Processing**: Uses asyncio for concurrent API calls
-
-## Architecture
-
-- **Django 3.2.23**: Web framework
-- **PostgreSQL + PostGIS**: Database with spatial support
-- **Redis**: Caching layer
-- **OSRM**: Open-source routing engine
-- **Nominatim**: OpenStreetMap geocoding service
-
-## Development
-
-### Running Tests
-```bash
-# Run all tests
-python manage.py test
-
-# Run tests with coverage
-pytest --cov=planner
-
-# Test the API
-python manage.py test_api
-```
-
-### Code Quality
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Format code
-black .
-
-# Lint code
-flake8 .
-
-# Sort imports
-isort .
-
-# Type checking
-mypy .
-```
-
-### API Testing
-```bash
-# Test API locally
-make test-api-local
-
-# Test API in Docker
-make test-api
-
-# Test specific route
-python manage.py test_api --start "New York, NY" --finish "Los Angeles, CA"
-```
-
-## License
-
-This project is licensed under the MIT License.
+1. **Start the API**: `make setup`
+2. **Test the API**: `curl -X POST http://localhost:8000/api/route-plan/ -H "Content-Type: application/json" -d '{"start": "New York, NY", "finish": "Chicago, IL"}'`
+3. **View logs**: `make logs`
+4. **Stop when done**: `make down`
