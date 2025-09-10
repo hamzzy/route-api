@@ -1,0 +1,747 @@
+ERROR 2025-09-10 12:04:29,618 base 7 281472358805920 OSRM routing error: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+Traceback (most recent call last):
+  File "/app/planner/services/routing.py", line 51, in get_route
+    response.raise_for_status()
+  File "/usr/local/lib/python3.10/site-packages/httpx/_models.py", line 758, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+WARNING 2025-09-10 12:04:29,623 views 7 281472358805920 Could not plan route from New York, NY to Chicago, IL
+ERROR 2025-09-10 12:04:37,685 base 24 281473726054432 Error geocoding station DK: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:12,682 base 24 281473726054432 Error geocoding station STRIPES #42435: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:18,498 base 24 281473726054432 Error geocoding station CIRCLE G TRUCK STOP: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:18,550 base 24 281473726054432 Error geocoding station STRIPES #42435: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:24,533 base 24 281473726054432 Error geocoding station CIRCLE K #2743950: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:47,134 base 24 281473726054432 Error geocoding station Paradise RV & Truck Park: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:50,486 base 24 281473726054432 Error geocoding station RACEWAY #7002: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:56,139 base 24 281473726054432 Error geocoding station MURPHY USA #7827: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:05:56,964 base 24 281473726054432 Error geocoding station Majors 660 Diboll Truck Plaza: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:02,741 base 24 281473726054432 Error geocoding station CEFCO #2070: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:08,409 base 24 281473726054432 Error geocoding station SHORT STOP #13: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:21,066 base 24 281473726054432 Error geocoding station MURPHY EXPRESS #8928: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:26,497 base 24 281473726054432 Error geocoding station ALLSUPS CONVENIENCE STORE #2173: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:37,527 base 24 281473726054432 Error geocoding station DK: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:39,201 base 24 281473726054432 Error geocoding station QUIKTRIP #7909: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:42,073 base 24 281473726054432 Error geocoding station QUIKTRIP #7925: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:45,615 base 24 281473726054432 Error geocoding station SUNOCO: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:51,380 base 24 281473726054432 Error geocoding station Quiktrip #7900: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:06:54,928 base 7 281472340849056 OSRM routing error: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+Traceback (most recent call last):
+  File "/app/planner/services/routing.py", line 51, in get_route
+    response.raise_for_status()
+  File "/usr/local/lib/python3.10/site-packages/httpx/_models.py", line 758, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+WARNING 2025-09-10 12:06:54,931 views 7 281472340849056 Could not plan route from New York, NY to Chicago, IL
+ERROR 2025-09-10 12:06:54,980 base 24 281473726054432 Error geocoding station SUNMART #308: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:12,008 base 24 281473726054432 Error geocoding station QUIKTRIP #7926: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:15,751 base 24 281473726054432 Error geocoding station SHEETZ #548: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:16,999 base 24 281473726054432 Error geocoding station SHEETZ #703: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:25,739 base 24 281473726054432 Error geocoding station QUIKTRIP #7926: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:25,742 base 24 281473726054432 Error geocoding station SHEETZ #703: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:41,951 base 24 281473726054432 Error geocoding station ONE9 #1300: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:45,763 base 24 281473726054432 Error geocoding station STRIPES #40598: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:49,956 base 24 281473726054432 Error geocoding station OPELOUSAS 190 TRUCK STOP: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:07:53,639 base 24 281473726054432 Error geocoding station MARATHON: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "/app/planner/services/geocoding.py", line 92, in geocode_fuel_stations
+    station.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 776, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 858, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 912, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 802, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1559, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:08:11,572 base 81 281472771486112 OSRM routing error: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+Traceback (most recent call last):
+  File "/app/planner/services/routing.py", line 51, in get_route
+    response.raise_for_status()
+  File "/usr/local/lib/python3.10/site-packages/httpx/_models.py", line 758, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+WARNING 2025-09-10 12:08:11,576 views 81 281472771486112 Could not plan route from New York, NY to Chicago, IL
+ERROR 2025-09-10 12:09:49,659 base 154 281472719450528 OSRM routing error: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+Traceback (most recent call last):
+  File "/app/planner/services/routing.py", line 51, in get_route
+    response.raise_for_status()
+  File "/usr/local/lib/python3.10/site-packages/httpx/_models.py", line 758, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'http://router.project-osrm.org/route/v1/driving/40.7127281,-74.0060152;41.8755616,-87.6244212?overview=full&geometries=polyline6&steps=false'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+WARNING 2025-09-10 12:09:49,663 views 154 281472719450528 Could not plan route from New York, NY to Chicago, IL
+INFO 2025-09-10 12:10:18,239 views 173 281473028845984 Successfully planned route from New York, NY to Chicago, IL
+INFO 2025-09-10 12:10:34,798 views 190 281472171700640 Returning cached result for route New York, NY -> Chicago, IL
+INFO 2025-09-10 12:11:34,704 views 207 281472087159200 Successfully planned route from 40.7128,-74.0060 to 41.8781,-87.6298
+INFO 2025-09-10 12:14:10,221 views 260 281473602744736 Returning cached result for route New York, NY -> Chicago, IL
+ERROR 2025-09-10 12:15:42,310 views 260 281473602744736 Response validation failed: {'summary': {'total_cost': [ErrorDetail(string='This field is required.', code='required')], 'number_of_stops': [ErrorDetail(string='This field is required.', code='required')]}}
+INFO 2025-09-10 12:16:07,185 views 276 281472849539488 Successfully planned route from New York, NY to Philadelphia, PA
+INFO 2025-09-10 12:16:11,781 views 276 281472849539488 Successfully planned route from New York, NY to Miami, FL
+INFO 2025-09-10 12:18:29,158 views 298 281473154216352 Returning cached result for route New York, NY -> Miami, FL
+ERROR 2025-09-10 12:18:49,758 views 298 281473154216352 Error planning route from New York, NY to Miami, FL
+Traceback (most recent call last):
+  File "/app/planner/views.py", line 78, in post
+    fuel_optimization = fuel_service.optimize_route_fuel_sync(
+  File "/app/planner/services/fuel_optimization.py", line 181, in optimize_route_fuel_sync
+    return asyncio.run(self.optimize_route_fuel(start_coords, end_coords, route_points, states))
+  File "/usr/local/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/app/planner/services/fuel_optimization.py", line 96, in optimize_route_fuel
+    stations = await self.get_stations_along_route(route_points, states)
+  File "/app/planner/services/fuel_optimization.py", line 59, in get_stations_along_route
+    for station in stations:
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1173, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.10/site-packages/django/utils/asyncio.py", line 31, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+ERROR 2025-09-10 12:19:15,672 views 310 281473318908320 Error planning route from New York, NY to Miami, FL
+Traceback (most recent call last):
+  File "/app/planner/views.py", line 78, in post
+    fuel_optimization = fuel_service.optimize_route_fuel_sync(
+  File "/app/planner/services/fuel_optimization.py", line 181, in optimize_route_fuel_sync
+    return asyncio.run(self.optimize_route_fuel(start_coords, end_coords, route_points, states))
+  File "/usr/local/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/app/planner/services/fuel_optimization.py", line 96, in optimize_route_fuel
+    stations = await self.get_stations_along_route(route_points, states)
+  File "/app/planner/services/fuel_optimization.py", line 62, in get_stations_along_route
+    coords = await self.geocoding_service.geocode_address(station.address)
+AttributeError: 'FuelOptimizationService' object has no attribute 'geocoding_service'
+ERROR 2025-09-10 12:19:31,278 views 316 281473011544480 Error planning route from New York, NY to Miami, FL
+Traceback (most recent call last):
+  File "/app/planner/views.py", line 78, in post
+    fuel_optimization = fuel_service.optimize_route_fuel_sync(
+  File "/app/planner/services/fuel_optimization.py", line 182, in optimize_route_fuel_sync
+    return asyncio.run(self.optimize_route_fuel(start_coords, end_coords, route_points, states))
+  File "/usr/local/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/app/planner/services/fuel_optimization.py", line 97, in optimize_route_fuel
+    stations = await self.get_stations_along_route(route_points, states)
+  File "/app/planner/services/fuel_optimization.py", line 63, in get_stations_along_route
+    coords = await self.geocoding_service.geocode_address(station.address)
+TypeError: GeocodingService.geocode_address() missing 2 required positional arguments: 'city' and 'state'
+INFO 2025-09-10 12:20:36,774 views 331 281473497166240 Successfully planned route from New York, NY to Philadelphia, PA
+INFO 2025-09-10 12:21:50,242 views 331 281473497166240 Successfully planned route from New York, NY to Miami, FL
+INFO 2025-09-10 12:25:23,219 views 340 281473400435104 Successfully planned route from 40.7128,-74.0060 to 41.8781,-87.6298
+WARNING 2025-09-10 12:30:44,084 base 366 281472931721632 Geocoding timeout for station One9 #1248
+WARNING 2025-09-10 12:30:47,094 base 366 281472931721632 Geocoding timeout for station CIRCLE K #2741553
+WARNING 2025-09-10 12:30:50,102 base 366 281472931721632 Geocoding timeout for station ROSCOE TRAVEL PLAZA
+WARNING 2025-09-10 12:30:53,115 base 366 281472931721632 Geocoding timeout for station 7-ELEVEN
+WARNING 2025-09-10 12:30:56,126 base 366 281472931721632 Geocoding timeout for station CIRCLE K #2741557
+WARNING 2025-09-10 12:30:59,139 base 366 281472931721632 Geocoding timeout for station CEFCO #2089
+WARNING 2025-09-10 12:31:04,563 base 366 281472931721632 Geocoding timeout for station CIRCLE K #2706340
+WARNING 2025-09-10 12:31:07,571 base 366 281472931721632 Geocoding timeout for station RACEWAY #6973
+WARNING 2025-09-10 12:31:23,981 base 366 281472931721632 Geocoding timeout for station AKAL TRAVEL CENTER
+WARNING 2025-09-10 12:31:31,507 base 366 281472931721632 Geocoding timeout for station TEX-BEST #505
+WARNING 2025-09-10 12:31:40,100 base 366 281472931721632 Geocoding timeout for station STUCKEYS TRAVEL CENTER
+WARNING 2025-09-10 12:31:43,110 base 366 281472931721632 Geocoding timeout for station Stuckeyâ€™s Travel Center West
+WARNING 2025-09-10 12:32:54,041 base 381 281472693957024 Could not geocode station 7-ELEVEN #218: 
+WARNING 2025-09-10 12:32:56,050 base 381 281472693957024 Could not geocode station Chevron: 
+WARNING 2025-09-10 12:32:59,394 base 381 281472693957024 Could not geocode station ROSCOE TRAVEL PLAZA: 
+WARNING 2025-09-10 12:33:01,400 base 381 281472693957024 Could not geocode station CIRCLE K #2741553: 
+WARNING 2025-09-10 12:33:03,412 base 381 281472693957024 Could not geocode station 7-ELEVEN: 
+WARNING 2025-09-10 12:33:05,418 base 381 281472693957024 Could not geocode station CIRCLE K #2741557: 
+WARNING 2025-09-10 12:33:07,426 base 381 281472693957024 Could not geocode station CEFCO #2089: 
+INFO 2025-09-10 12:33:09,116 views 381 281472693957024 Successfully planned route from New York, NY to Chicago, IL
+WARNING 2025-09-10 12:33:17,011 base 381 281472693957024 Could not geocode station 7-ELEVEN #218: 
+WARNING 2025-09-10 12:33:26,732 base 381 281472693957024 Could not geocode station 7-ELEVEN: 
+WARNING 2025-09-10 12:33:28,744 base 381 281472693957024 Could not geocode station CIRCLE K #2741557: 
+WARNING 2025-09-10 12:33:30,756 base 381 281472693957024 Could not geocode station CEFCO #2089: 
+WARNING 2025-09-10 12:33:32,764 base 381 281472693957024 Could not geocode station CIRCLE K #2706340: 
+INFO 2025-09-10 12:33:32,774 views 381 281472693957024 Successfully planned route from New York, NY to Los Angeles, CA
+INFO 2025-09-10 12:34:14,309 views 396 281472782037408 Returning cached result for route New York, NY -> Los Angeles, CA
+ERROR 2025-09-10 12:34:25,149 views 396 281472782037408 Response validation failed: {'fuel_stops': [{'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}, {'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}, {'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}, {'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}]}
+ERROR 2025-09-10 12:34:40,846 views 408 281472820834720 Error planning route from New York, NY to Los Angeles, CA
+Traceback (most recent call last):
+  File "/app/planner/views.py", line 96, in post
+    'distance_from_prev_miles': round(stop['distance_from_prev'], 2),
+KeyError: 'distance_from_prev'
+ERROR 2025-09-10 12:34:52,259 views 411 281473753870752 Response validation failed: {'fuel_stops': [{'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}, {'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}, {'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}, {'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}]}
+ERROR 2025-09-10 12:35:51,963 views 416 281473216082336 Response validation failed: {'fuel_stops': [{'station': [ErrorDetail(string='This field is required.', code='required')], 'distance_from_previous': [ErrorDetail(string='This field is required.', code='required')], 'fuel_needed': [ErrorDetail(string='This field is required.', code='required')]}]}
+INFO 2025-09-10 12:37:32,067 views 423 281472860352928 Successfully planned route from New York, NY to Los Angeles, CA
+INFO 2025-09-10 12:37:40,747 views 423 281472860352928 Successfully planned route from New York, NY to Chicago, IL
+INFO 2025-09-10 12:37:56,924 views 429 281472935391648 Successfully planned route from 40.7128,-74.0060 to 41.8781,-87.6298
+INFO 2025-09-10 12:38:08,940 views 429 281472935391648 Returning cached result for route New York, NY -> Chicago, IL
+INFO 2025-09-10 12:38:24,399 views 429 281472935391648 Successfully planned route from 40.7134,-74.0064 to 41.8781,-87.6298
+INFO 2025-09-10 12:40:21,314 views 440 281473319432608 Returning cached result for route New York, NY -> Chicago, IL
+WARNING 2025-09-10 12:40:42,197 base 440 281473319432608 Could not geocode station 7-ELEVEN: 
+WARNING 2025-09-10 12:40:51,263 base 440 281473319432608 Could not geocode station AKAL TRAVEL CENTER: 
+WARNING 2025-09-10 12:41:03,746 base 440 281473319432608 Could not geocode station Stuckeyâ€™s Travel Center West: 
+INFO 2025-09-10 12:41:06,450 views 440 281473319432608 Successfully planned route from New York, NY to Chicago, IL
+INFO 2025-09-10 12:41:46,879 views 457 281473614016928 Returning cached result for route New York, NY -> Chicago, IL
+INFO 2025-09-10 12:41:56,262 views 457 281473614016928 Successfully planned route from New York, NY to Chicago, IL
+INFO 2025-09-10 12:42:01,037 views 457 281473614016928 Successfully planned route from New York, NY to Los Angeles, CA
+INFO 2025-09-10 12:42:33,219 views 475 281473800335776 Successfully planned route from 40.7134,-74.0064 to 41.8781,-87.6298
+INFO 2025-09-10 12:43:14,790 views 475 281473800335776 Returning cached result for route New York, NY -> Los Angeles, CA
+INFO 2025-09-10 12:44:44,901 views 475 281473808789920 Successfully planned route from Effingham, IL to Jarrell, TX
+INFO 2025-09-10 12:45:11,014 views 475 281473808789920 Returning cached result for route New York, NY -> Chicago, IL
+INFO 2025-09-10 12:45:27,740 views 475 281473808789920 Successfully planned route from Ellenton, FL to Gila Bend, AZ
